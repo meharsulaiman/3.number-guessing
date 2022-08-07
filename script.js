@@ -29,7 +29,21 @@ check.addEventListener(
                 highScore = totalScore;
                 document.querySelector('.highscore').textContent = highScore;
             }
-        } else if (guessNum > secretNum) {
+        } else if (guessNum !== secretNum) {
+            if (totalScore > 1) {
+                message.textContent = guessNum > secretNum ? "📈 Too high" : "📉 Too Low";
+                totalScore--;
+                score.textContent = totalScore;
+            } else {
+                message.textContent = "💥 You lose the Game";
+                score.textContent = 0;
+                body.style.background = "red"
+            }
+        }
+
+
+
+        /* else if (guessNum > secretNum) {
             if (totalScore > 1) {
                 message.textContent = "📈 Too high";
                 totalScore--;
@@ -51,7 +65,7 @@ check.addEventListener(
                 score.textContent = 0;
                 body.style.background = "red"
             }
-        }
+        } */
     }
 )
 
